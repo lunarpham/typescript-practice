@@ -1,0 +1,343 @@
+// Color variables (unchanged, as they are already modern)
+$color-white: white;
+$color-dark: #1a202c;
+
+$color-gray-primary: #777777;
+$color-gray-dark: #646d7d;
+$color-gray-light: #e2e8f0;
+$color-gray-glow: rgba(113, 128, 150, 0.3);
+
+$color-blue-primary: #3b82f6;
+$color-blue-dark: #2563eb;
+$color-blue-light: #dbeafe;
+$color-blue-glow: rgba(59, 130, 246, 0.3);
+
+$color-green-primary: #10b981;
+$color-green-dark: #059669;
+$color-green-light: #d1fae5;
+$color-green-glow: rgba(16, 185, 129, 0.3);
+
+$color-red-primary: #ef4444;
+$color-red-dark: #dc2626;
+$color-red-light: #fee2e2;
+$color-red-glow: rgba(239, 68, 68, 0.3);
+
+$color-yellow-primary: #f59e0b;
+$color-yellow-dark: #d97706;
+$color-yellow-light: #fef3c7;
+$color-yellow-darker: #b45309;
+$color-yellow-glow: rgba(245, 158, 11, 0.3);
+
+// Base button styles
+.button {
+  font-family: inherit;
+  border-radius: 0.5rem;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1.3px solid;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Size variants
+.button.sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.button.md {
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+}
+
+.button.lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.radius-none {
+  border-radius: 0;
+}
+
+.radius-sm {
+  border-radius: 0.25rem;
+}
+
+.radius-md {
+  border-radius: 0.5rem;
+}
+
+.radius-lg {
+  border-radius: 0.75rem;
+}
+
+.radius-full {
+  border-radius: 9999px;
+}
+
+.button.outline {
+  background-color: transparent !important;
+}
+
+.button.soft {
+  border: 1.3px solid transparent;
+}
+
+// Color-specific styles
+.blue {
+  &.solid {
+    background-color: $color-blue-primary;
+    color: $color-white;
+    border-color: $color-blue-primary;
+    box-shadow: 0 0 5px $color-blue-glow;
+
+    &:hover:not(:disabled) {
+      background-color: $color-blue-dark;
+      border-color: $color-blue-dark;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $color-blue-primary;
+    border-color: $color-blue-primary;
+    box-shadow: 0 0 5px $color-blue-glow;
+
+    &:hover:not(:disabled) {
+      color: $color-blue-dark;
+      border-color: $color-blue-dark;
+    }
+  }
+
+  &.soft {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+    color: $color-blue-primary;
+    text-shadow: 0 0 5px $color-blue-glow;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(59, 130, 246, 0.3) !important;
+    }
+  }
+
+  &.shadow {
+    background-color: $color-blue-primary;
+    color: $color-white;
+    border-color: $color-blue-primary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover:not(:disabled) {
+      background-color: $color-blue-dark;
+      border-color: $color-blue-dark;
+    }
+  }
+}
+
+.green {
+  &.solid {
+    background-color: $color-green-primary;
+    color: $color-white;
+    border-color: $color-green-primary;
+    box-shadow: 0 0 10px $color-green-glow;
+
+    &:hover:not(:disabled) {
+      background-color: $color-green-dark;
+      border-color: $color-green-dark;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $color-green-primary;
+    border-color: $color-green-primary;
+    box-shadow: 0 0 10px $color-green-glow;
+
+    &:hover:not(:disabled) {
+      color: $color-green-dark;
+      border-color: $color-green-dark;
+    }
+  }
+
+  &.soft {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: $color-green-primary;
+    text-shadow: 0 0 5px $color-green-glow;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(16, 185, 129, 0.3) !important;
+    }
+  }
+
+  &.shadow {
+    background-color: $color-green-primary;
+    color: $color-white;
+    border-color: $color-green-primary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover:not(:disabled) {
+      background-color: $color-green-dark;
+      border-color: $color-green-dark;
+    }
+  }
+}
+
+.red {
+  &.solid {
+    background-color: $color-red-primary;
+    color: $color-white;
+    border-color: $color-red-primary;
+    box-shadow: 0 0 10px $color-red-glow;
+
+    &:hover:not(:disabled) {
+      background-color: $color-red-dark;
+      border-color: $color-red-dark;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $color-red-primary;
+    border-color: $color-red-primary;
+    box-shadow: 0 0 10px $color-red-glow;
+
+    &:hover:not(:disabled) {
+      color: $color-red-dark;
+      border-color: $color-red-dark;
+    }
+  }
+
+  &.soft {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: $color-red-primary;
+    text-shadow: 0 0 5px $color-red-glow;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(239, 68, 68, 0.3) !important;
+    }
+  }
+
+  &.shadow {
+    background-color: $color-red-primary;
+    color: $color-white;
+    border-color: $color-red-primary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover:not(:disabled) {
+      background-color: $color-red-dark;
+      border-color: $color-red-dark;
+    }
+  }
+}
+
+.yellow {
+  &.solid {
+    background-color: $color-yellow-primary;
+    color: $color-dark;
+    border-color: $color-yellow-primary;
+    box-shadow: 0 0 10px $color-yellow-glow;
+
+    &:hover:not(:disabled) {
+      background-color: $color-yellow-dark;
+      border-color: $color-yellow-dark;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $color-yellow-darker;
+    border-color: $color-yellow-primary;
+    box-shadow: 0 0 10px $color-yellow-glow;
+
+    &:hover:not(:disabled) {
+      color: $color-yellow-dark;
+      border-color: $color-yellow-dark;
+    }
+  }
+
+  &.soft {
+    background-color: rgba(245, 158, 11, 0.2) !important;
+    color: $color-yellow-primary;
+    text-shadow: 0 0 5px $color-yellow-glow;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(245, 158, 11, 0.3) !important;
+    }
+  }
+
+  &.shadow {
+    background-color: $color-yellow-primary;
+    color: $color-dark;
+    border-color: $color-yellow-primary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover:not(:disabled) {
+      background-color: $color-yellow-dark;
+      border-color: $color-yellow-dark;
+    }
+  }
+}
+
+.gray {
+  &.solid {
+    background-color: $color-gray-primary;
+    color: $color-white;
+    border-color: $color-gray-primary;
+    box-shadow: 0 0 10px $color-gray-glow;
+
+    &:hover:not(:disabled) {
+      background-color: $color-gray-dark;
+      border-color: $color-gray-dark;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: $color-gray-primary;
+    border-color: $color-gray-primary;
+    box-shadow: 0 0 10px $color-gray-glow;
+
+    &:hover:not(:disabled) {
+      color: $color-gray-dark;
+      border-color: $color-gray-dark;
+    }
+  }
+
+  &.soft {
+    background-color: rgba(113, 128, 150, 0.2) !important;
+    color: $color-gray-primary;
+    text-shadow: 0 0 5px $color-gray-glow;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(113, 128, 150, 0.3) !important;
+    }
+  }
+
+  &.shadow {
+    background-color: $color-gray-primary;
+    color: $color-white;
+    border-color: $color-gray-primary;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover:not(:disabled) {
+      background-color: $color-gray-dark;
+      border-color: $color-gray-dark;
+    }
+  }
+}
