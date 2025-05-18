@@ -5,15 +5,8 @@ interface PersonModel {
 }
 
 interface UserModel extends PersonModel {
-  role: Role;
+  role: UserRole;
   permissions?: Permission[];
-}
-
-// Enum for user roles in system
-// When no label is assigned by user, index will be the case, start at 0
-enum Role {
-  "ADMIN", // 0
-  "USER", // 1
 }
 
 enum Permission {
@@ -22,6 +15,11 @@ enum Permission {
   "DELETE_POST",
   "RESTRICT_USER",
   "DELETE_USER",
+}
+
+enum UserRole {
+  "ADMIN",
+  "USER",
 }
 
 // create an object type with key of type (Permission) and values of type (Description)
@@ -64,7 +62,7 @@ class Person {
 }
 
 class User extends Person {
-  private role: Role;
+  private role: UserRole;
   private permissions: Permission[];
 
   constructor({ name, age, isValidated, role, permissions }: UserModel) {
@@ -190,7 +188,7 @@ function createUser() {
     name: "John Doe",
     age: 30,
     isValidated: true,
-    role: Role.USER,
+    role: UserRole.USER,
     permissions: [Permission.UPLOAD_POST, Permission.EDIT_POST],
   });
   console.log("User details: ", exampleUser.getUser());
@@ -260,7 +258,7 @@ function demoGenericWrapper() {
     name: "Jane Doe",
     age: 28,
     isValidated: true,
-    role: Role.USER,
+    role: UserRole.USER,
     permissions: [Permission.EDIT_POST],
   });
   console.log(
@@ -332,14 +330,14 @@ function demoGenericRepository() {
     name: "Alice",
     age: 25,
     isValidated: true,
-    role: Role.USER,
+    role: UserRole.USER,
     permissions: [Permission.EDIT_POST],
   });
   userRepo.add({
     name: "Bob",
     age: 30,
     isValidated: true,
-    role: Role.ADMIN,
+    role: UserRole.ADMIN,
     permissions: [Permission.UPLOAD_POST, Permission.DELETE_POST],
   });
 

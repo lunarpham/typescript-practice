@@ -4,6 +4,11 @@ enum Status {
   married,
 }
 
+enum Role {
+  "ADMIN",
+  "USER",
+}
+
 /* Define a type */
 type BasePersonType = {
   age: number;
