@@ -12,7 +12,7 @@ const UserSchema = z.object({
 
 type UserInput = z.infer<typeof UserSchema>;
 
-function validateUser(input: any): User {
+function validateUser(input: unknown): User {
   const result = UserSchema.safeParse(input);
   if (!result.success) {
     throw new Error(`Validation failed: ${result.error.message}`);

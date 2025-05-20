@@ -25,23 +25,32 @@ function getPermissionDescription(permission: Permissions): string {
   return PermissionDescriptions[permission];
 }
 
-function isUser(obj: any): obj is User {
+function isUser(obj: unknown): obj is User {
+  if (!obj || typeof obj !== "object" || obj === null) {
+    return false;
+  }
+
   const hasValidPermissions =
-    !obj.permissions ||
-    (Array.isArray(obj.permissions) &&
-      obj.permissions.every((perm: any) =>
-        Object.values(Permissions).includes(perm)
+    !("permissions" in obj) ||
+    (Array.isArray((obj as Record<string, unknown>).permissions) &&
+      ((obj as Record<string, unknown>).permissions as unknown[]).every(
+        (perm) => Object.values(Permissions).includes(perm as Permissions)
       ));
 
   return (
-    obj &&
-    typeof obj === "object" &&
-    typeof obj.id === "number" &&
-    typeof obj.name === "string" &&
-    (obj.email === undefined || typeof obj.email === "string") &&
-    ["user", "admin"].includes(obj.role) &&
+    "id" in obj &&
+    typeof (obj as Record<string, unknown>).id === "number" &&
+    "name" in obj &&
+    typeof (obj as Record<string, unknown>).name === "string" &&
+    (!("email" in obj) ||
+      typeof (obj as Record<string, unknown>).email === "string") &&
+    "role" in obj &&
+    ["user", "admin"].includes(
+      (obj as Record<string, unknown>).role as string
+    ) &&
     hasValidPermissions &&
-    (obj.createdAt === undefined || obj.createdAt instanceof Date)
+    (!("createdAt" in obj) ||
+      (obj as Record<string, unknown>).createdAt instanceof Date)
   );
 }
 

@@ -2,7 +2,7 @@ import { User, isUser, Permissions, getPermissionDescription } from "./types";
 import { validateUser } from "./validators";
 import { formatName } from "./utils/formatName";
 
-export function processUser(input: any): User {
+export function processUser(input: unknown): User {
   if (!isUser(input)) {
     throw new Error("Invalid user object");
   }
